@@ -1,0 +1,1898 @@
+/* CSS-Variablen */
+:root {
+    --navbar-height: 120px; /* Standardhöhe der Navbar */
+    /* Hintergrund raus
+    --background-image: url('../images/background-image.webp'); 
+ */
+
+/* Standard-Hintergrundbild */
+    /* Textfarben */
+    --text-color-primary: black; /* Hauptfarbe für Text */
+    --text-color-gradient-start: #00ffcc; /* Farbverlauf für Text von Türkis */
+    --text-color-gradient-end: #007bff;   /* zu Blau */
+
+    /* Button-Farben */
+    --button-gradient-start: #00CBB7; /* Dunkleres Türkis */
+    --button-gradient-end: #55F3BD;   /* Helleres Türkis */
+    --button-gradient-hover-start: #55F3BD; /* Helleres Türkis bei Hover */
+    --button-gradient-hover-end: #00CBB7;   /* Dunkleres Türkis bei Hover */
+
+    /* Link-Farben */
+    --link-color: #00ffcc;
+    --link-color-hover: #00cca3;
+    --link-gradient-start: #00ffcc; /* Türkis */
+    --link-gradient-end: #007bff;   /* Blau */
+    --link-gradient-hover-start: #007bff; /* Blau bei Hover */
+    --link-gradient-hover-end: #00ffcc;   /* Türkis bei Hover */
+   
+	 /* Allgemeine Farben für Container und Inhalt */
+    --container-bg-color: rgba(255, 255, 255, 0.0); /* Transparenter Hintergrund */
+    --container-shadow-color: rgba(0, 0, 0, 0.1);   /* Schattenfarbe */
+    --text-color: #ffffff;                          /* Textfarbe */
+    --link-color: #000000;                          /* Button Linkfarbe */
+    --link-hover-color: #000000;                    /* Link Hover-Farbe */
+
+ 	/* Allgemeine Farben für Sidebar Linkfarbe */
+	--sidebar-link-color: white; /* Sidebar Linkfarbe */
+    --sidebar-hover-background-color: rgba(255, 255, 255, 0.1); /* Hover-Hintergrundfarbe */
+
+    /* Spezifische Variablen für die Kontakt-Links */
+    --contact-link-color: #00CBB7;                  /* Kontakt-Linkfarbe */
+    --contact-link-hover-color: #55F3BD;            /* Kontakt Link Hover-Farbe */
+
+    /* Neue Impressum-Link-Farben */
+    --impressum-link-color: #00CBB7;
+    --impressum-link-hover-color: #55F3BD;
+
+    /* Neue Datenschutz-Link-Farben */
+    --datenschutz-link-color: #00CBB7;
+    --datenschutz-link-hover-color: #55F3BD;
+
+ 	/* Allgemeine Farben für Linkfarbe in der Desktop-Sidebar */
+    --desktop-sidebar-link-color: white; /* Linkfarbe in der Desktop-Sidebar */
+    --desktop-sidebar-hover-background-color: rgba(255, 255, 255, 0.1); /* Hover-Hintergrundfarbe in der Desktop-Sidebar */
+
+ 	/* Allgemeine Farben für Mobiler Hintergrund */
+    --mobile-menu-bg-color: rgba(0, 0, 0, 0.9);
+
+	/* Allgemeine Farben für Mobiler Links */
+	--mobile-menu-link-color: white;
+    --mobile-menu-link-hover-color: #00ffcc;
+
+	/* Allgemeine Farben für Die HERO SEKTION */
+	--hero-text-color: white;
+	
+	/* Titelfarbein Sektionen H2 - Ueberschriftenfarbe */
+     --section-title-gradient: linear-gradient(90deg, #00FFD8, #9FEBB6);
+
+	/* Hintergrundfarbe der SectionBox */
+    --section-box-bg-color: transparent;
+    --section-box-text-color: white;
+
+
+
+	/* Footer Hintergrundfarben */
+    --footer-bg-color: rgba(0, 0, 0, 0.8);
+	/* Footer Textfarben */
+    --footer-text-color: white;
+	
+	/* Footer Grenzfarben */
+    --footer-border-color: #ccc;
+    --footer-content-text-color: #555;
+	/* Linkfarbe im strukturierten Bereich*/
+   	--footer-content-link-color: #00CBB7;
+
+	/* Symbolfarbe in benefits-list und services-list */
+    --list-icon-color: #00ffcc;
+
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    :root {
+        --navbar-height: 100px; /* Höhe der Navbar auf kleineren Bildschirmen */
+    }
+}
+
+/* Grundlegende Stile */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:  rgb(11, 11, 19); /* Dunkler Basis-Hintergrund */;
+    color: white;
+    overflow-x: hidden; /* Verhindert horizontales Scrollen */
+}
+
+/* Hintergrundbild für den Body */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Hintergrund raus
+	background-image: var(--background-image); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ */
+    background: radial-gradient(
+        circle at 50% 0%, 
+        rgba(85, 243, 189, 0.12) 0%,    /* Start mit helleren Türkis */
+        rgba(0, 203, 183, 0.10) 20%,    /* Erster Übergang */
+        rgba(0, 203, 183, 0.08) 40%,    /* Zweiter Übergang */
+        rgba(11, 11, 19, 0.95) 60%,     /* Dunklerer Übergang */
+        rgba(11, 11, 19, 1) 100%        /* Komplett dunkel */
+    );
+    z-index: -1;
+    opacity: 1;
+    transition: background-image 0.3s ease; /* Für flüssige Übergänge */
+}
+
+/* Wrapper für die Fluid-Simulation */
+.simulation-wrapper {
+    width: 100%;  /* Volle Breite */
+    margin: 0;  /* Nur vertikaler Abstand, kein horizontaler */
+    padding: 0;  /* Kein Padding */
+    background: transparent;  /* Transparenter Hintergrund */
+    border: none;  /* Kein Rahmen */
+    box-shadow: none;  /* Kein Schatten */
+    flex-direction: column; /* Stellt sicher, dass Controls unter dem Canvas erscheinen */
+}
+
+
+
+.simulation-wrapper h2 {
+    display: none;  /* Titel ausblenden */
+}
+
+/* Mehr Abstand zum nachfolgenden Content */
+.content-wrapper {
+    margin-top: 100px;  /* Erhöhter Abstand */
+}
+
+/* Fluid Simulation Styles */
+.fluid-container {
+    width: 100vw;  /* Volle Viewport-Breite */
+    height: 300px;
+    margin-left: calc(-50vw + 50%);  /* Zentrierung und volle Breite */
+    margin-right: calc(-50vw + 50%);
+    background: transparent;
+    position: relative;
+    left: 0;
+}
+
+
+.fluid-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+    pointer-events: none;  /* Damit der Text nicht mit den Maus/Touch-Events interferiert */
+    mix-blend-mode: overlay;  /* Lässt den Text mit dem Hintergrund verschmelzen */
+}
+
+#fluid-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#fluid-controls {
+    position: relative;  /* Geändert von absolute zu fixed für konsistente Positionierung */
+    z-index: 1012;
+    text-align: right; /* Rechtsbündige Ausrichtung */
+    margin-top: 10px; /* Abstand zur Fluid-Box */
+    margin-right: 20px; /* Rechter Abstand */
+}
+
+.fluid-button {
+    background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: var(--text-color-primary);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.fluid-button:hover {
+    background: linear-gradient(90deg, var(--button-gradient-hover-start), var(--button-gradient-hover-end));
+}
+
+
+/* Mobile Anpassungen für die Fluid-Simulation */
+@media (max-width: 768px) {
+    .fluid-container {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        height: 200px;  /* Etwas kleinere Höhe für mobile Geräte */
+    }
+        #fluid-controls {
+        margin-top: 5px; /* Kleinerer Abstand auf mobilen Geräten */
+        margin-right: 10px; /* Kleinerer rechter Abstand */
+    }
+
+    .fluid-text {
+        font-size: 32px;  /* Kleinere Schrift auf mobilen Geräten */
+    }
+
+    .fluid-button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    .content-wrapper {
+        margin-top: 60px;  /* Etwas weniger Abstand auf mobilen Geräten */
+    }
+
+    .section-box h3 {
+        font-size: 24px;
+    }
+    
+    .section-box p {
+        font-size: 16px;
+    }
+
+
+
+}
+
+/* Stil für den VP-Link */
+.vp-link {
+    background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: black;
+    padding: 5px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    margin-right: 15px;
+    transition: background 0.3s ease;
+
+}
+
+.vp-link:hover {
+    background: linear-gradient(90deg, var(--button-gradient-hover-start), var(--button-gradient-hover-end));
+    color: black;
+}
+
+/* Anpassungen für mobile Ansicht */
+@media (max-width: 768px) {
+    .mobile-social-icons .vp-link {
+        padding: 3px 14px 3px 16px; /* Leicht mehr Padding links als rechts für bessere Zentrierung */
+        font-size: 12px;
+        margin-right: 10px;
+        line-height: 30px; /* Anpassung für vertikale Text-Zentrierung */
+        vertical-align: middle; /* Zusätzliche vertikale Ausrichtung */
+    }
+}
+</style>
+
+
+.flash-messages {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1010;
+    width: fit-content;
+    min-width: 200px;
+    max-width: 90%;
+}
+
+.flash-message {
+    padding: 15px 20px; /* Reduziertes Padding, da kein Close-Button mehr nötig ist */
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+    border: 1px solid rgba(85, 243, 189, 0.1);
+    width: fit-content;
+    min-width: 200px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+/* Erfolgs-Nachricht mit deinem Farbschema */
+.flash-message.success {
+    background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: black;
+}
+
+/* Fehler-Nachricht mit deinem Farbschema */
+.flash-message.error {
+    background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: black;
+}
+
+/* Info-Nachricht mit deinem Farbschema */
+.flash-message.info {
+    background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: black;
+}
+
+/* Einblend-Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ausblend-Animation */
+.flash-message {
+    animation: fadeIn 0.3s ease-out, fadeOut 0.5s ease-out 4s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+    }
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .flash-messages {
+        width: 90%;
+        padding: 0;
+        top: 90px;
+    }
+    
+    .flash-message {
+        padding: 12px 15px; /* Gleichmäßiges Padding für mobile Ansicht */
+        font-size: 14px;
+    }
+}
+
+/* VP Dashboard Styles */
+.logout-container {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.btn-logout {
+    background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: black;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: linear-gradient(90deg, var(--button-gradient-hover-start), var(--button-gradient-hover-end));
+    transform: translateY(-2px);
+}
+
+.dashboard-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(85, 243, 189, 0.1);
+}
+
+.document-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.document-list li {
+    margin-bottom: 10px;
+}
+
+.document-list a {
+    color: white !important; /* Force white color */
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.document-list a:hover {
+    background-color: rgba(85, 243, 189, 0.1);
+    transform: translateX(5px);
+    color: var(--button-gradient-end) !important;
+}
+
+
+
+
+
+/* 3D Logo Container Styles */
+#3d-logo-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    overflow: hidden !important;
+    overscroll-behavior: none;
+    touch-action: none;
+}
+
+/* Spline Viewer Styles */
+spline-viewer {
+    width: 100% !important;
+    height: 100% !important;
+    overscroll-behavior: none !important;
+    touch-action: none !important;
+}
+
+/* Container Canvas Styles */
+#3d-logo-container canvas {
+    touch-action: none;
+    -ms-touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/* Allgemeine Stile für alle Container */
+.content-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 24px;
+    background-color: var(--container-bg-color);
+    border-radius: 12px;
+  border: 1px solid rgba(85, 243, 189, 0.05);
+backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px var(--container-shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+
+}
+.content-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 203, 183, 0.1);
+}
+
+/* Standard Bild-Container (für Content-Bereiche) */
+.content-container .image-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.content-container .centered-image {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.hero .image-container {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding-top: 50px;
+}
+
+/* Basis-Bildstile für alle Hero-Bilder */
+.hero .image-container img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+@media (max-width: 768px) {
+    .hero .image-container {
+        height: 400px;
+    }
+    
+    .hero .image-container img {
+        max-height: 100%;
+    }
+}
+
+
+/* Spezifische Verlaufseffekte pro Seite */
+.hero-energie .image-container img {
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 95%,
+        transparent 100%
+
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 95%,
+        transparent 100%
+
+    );
+}
+
+
+
+/* Video Container für Rauch-Animation */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Volle Viewport-Höhe */
+    overflow: hidden;
+    z-index: 1; /* Stellen Sie sicher, dass das Video unter anderen Elementen liegt */
+}
+
+.video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Füllt den Container komplett aus */
+
+}
+
+/* Overlay für besseren Kontrast mit Text */
+.video-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(11, 11, 19, 0.4) 0%,
+        rgba(11, 11, 19, 0.6) 50%,
+        rgba(11, 11, 19, 0.8) 100%
+    ); /* Schließende Klammer für radial-gradient */
+    mix-blend-mode: plus-lighter; /* Entfernt die schwarzen Bereiche */
+    filter: brightness(1.0) contrast(1.1); /* Verstärkt den Effekt */
+    );
+}
+
+
+/* Gemeinsame Basis-Stile für Video-Sektionen */
+.videore-section,
+.videoli-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Gemeinsame Text-Stile */
+.videore-text,
+.videoli-text {
+    flex: 1;
+    padding: 0 40px;
+}
+
+.videore-text h2,
+.videoli-text h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.videore-text p,
+.videoli-text p {
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Gemeinsame Video-Container-Stile */
+.videore-video-container {
+    flex: 1;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(85, 243, 189, 0.1);
+}
+
+.videoli-video-container {
+    flex: 1;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(85, 243, 189, 0.1);
+    margin-left: 40px; /* Wieder hinzugefügt für die linksseitigen Videos */
+}
+
+/* Gemeinsame Video-Stile */
+.videore-video-container video,
+.videoli-video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Verhindert unerwünschte Abstände */
+    margin: 0;
+    padding: 0;
+    vertical-align: top; /* Entfernt mögliche Abstände am unteren Rand */
+    border-radius: 12px; /* Gleicher Radius wie Container */
+}
+
+/* Responsive Design für mobile Geräte */
+@media (max-width: 768px) {
+    /* Gemeinsame mobile Sektion-Stile */
+    .videore-section,
+    .videoli-section {
+        flex-direction: column;
+        margin: 20px auto;
+        padding: 0;
+        width: 90%;
+    }
+
+    /* Gemeinsame mobile Text-Stile */
+    .videore-text,
+    .videoli-text {
+        padding: 0;
+        width: 100%;
+        margin-top: 20px; /* Abstand zwischen Video und Text */
+        margin-bottom: 20px; /* Abstand zwischen Text und Button/nachfolgendem Content */
+    }
+
+    /* Gemeinsame mobile Video-Container-Stile */
+    .videore-video-container,
+    .videoli-video-container {
+        width: 100%;
+        height: 300px;
+        margin: 0;
+    }
+    
+    /* Reset margin-left für linksseitige Videos im mobilen Layout */
+    .videoli-video-container {
+        margin-left: 0;
+    }
+
+    /* Spezifische Anpassungen für Text und Videos */
+    .videore-text p,
+    .videoli-text p {
+        font-size: 16px;
+    }
+}
+
+/* Styles für den Counter */
+.stats-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    max-width: 56rem;
+    margin: 3rem auto;
+    border: 1px solid rgba(85, 243, 189, 0.1);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.stats-item {
+    text-align: center;
+}
+
+.stats-number {
+    font-size: 2.25rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #00ffcc, #55F3BD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.stats-label {
+    color: white;
+    font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Zwei Spalten für die ersten beiden Stats */
+        grid-template-rows: auto auto; /* Zwei Reihen */
+        gap: 1rem;
+    }
+    
+    /* Das dritte Element soll sich über beide Spalten erstrecken */
+    .stats-grid .stats-item:last-child {
+        grid-column: 1 / -1; /* Von der ersten bis zur letzten Spalte */
+        margin-top: 1rem; /* Zusätzlicher Abstand nach oben */
+    }
+    
+    .stats-number {
+        font-size: 2rem;
+    }
+}
+
+
+
+.hero-glasfaser {
+    position: relative;
+    overflow: hidden;
+    padding-left: 180px;
+}
+
+.hero-glasfaser .image-container {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-glasfaser .image-container .overlay-image {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-glasfaser .image-container img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    -webkit-mask-image: linear-gradient(
+        to left,
+        transparent 0%,
+        black 40%,
+        black 10%
+    );
+    mask-image: linear-gradient(
+        to left,
+        transparent 0%,
+        black 40%,
+        black 10%
+    );
+}
+
+.hero-glasfaser .image-container .overlay-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    z-index: 2;
+    animation: increaseBrightness 9s ease-in forwards;
+}
+
+@keyframes increaseBrightness {
+    0% {
+        opacity: 1;
+        filter: brightness(0.3);
+    }
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+}
+
+.hero-glasfaser .video-container {
+    position: absolute !important;
+    width: 100% !important;
+    height: 500px !important;
+    padding-top: 50px !important;
+    left: 180px !important;
+    z-index: 0 !important;
+    overflow: hidden !important;
+}
+
+.hero-glasfaser .video-container video {
+    position: relative !important;
+    width: 100% !important;
+    height: 500px !important;
+    object-fit: cover !important;
+    transform: none !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .hero-glasfaser {
+        padding-left: 20px;
+    }
+    
+    .hero-glasfaser .image-container {
+        height: 300px !important;
+        padding-top: 30px;
+    }
+    
+    .hero-glasfaser .video-container {
+        height: 300px !important;
+        padding-top: 30px !important;
+        left: 20px !important;
+    }
+    
+    .hero-glasfaser .video-container video {
+        height: 300px !important;
+    }
+    
+    .hero-glasfaser .image-container img {
+        max-height: 100%;
+        width: auto;
+    }
+    
+    .hero-glasfaser .image-container .overlay-image {
+        height: 300px !important;
+        padding-top: 30px;
+    }
+}
+
+.hero-energie {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-energie .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Über dem Hintergrund, unter dem Bild */
+    mix-blend-mode: screen; /* Entfernt die schwarzen Bereiche */
+    filter: brightness(1.5) contrast(1.2); /* Verstärkt den Effekt */
+
+}
+
+.hero-energie .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(1.5) contrast(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+
+}
+
+/* Video auf Mobilgeräten ausblenden */
+@media (max-width: 768px) {
+    .hero-energie .video-container {
+        display: none;
+    }
+}
+
+
+
+
+
+
+.hero-telekommunikation .image-container img {
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+    
+    
+  -webkit-mask-image: linear-gradient(
+           to right,
+           transparent 0%,
+           black 15%,
+           black 85%,
+           transparent 100%
+       ),
+       linear-gradient(
+           to bottom,
+           transparent 0%,
+           black 20%,  /* Mehr Transparenz oben */
+           black 95%,
+           transparent 100%
+       );
+   mask-image: linear-gradient(
+           to right,
+           transparent 0%,
+           black 15%,
+           black 85%,
+           transparent 100%
+       ),
+       linear-gradient(
+           to bottom,
+           transparent 0%,
+           black 20%,  /* Mehr Transparenz oben */
+           black 95%,
+           transparent 100%
+       );
+}
+
+.hero-photovoltaik .image-container img {
+    -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 20%,
+            black 80%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
+    mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 20%,
+            black 80%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
+}
+
+/* Startseite: Alle Boxen und deren Inhalte zentrieren */
+.intro-content,
+.intro-content .section-box {
+    text-align: center;
+}
+.intro-content p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 20px 0 30px 0;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+/* Buttons auf der Startseite zentrieren */
+.intro-content .btn,
+.intro-content .btn-instagram {
+    display: inline-block;
+    margin: 20px 10px;
+}
+
+/* Bewerbungsseite: Nur die Hauptüberschriften zentrieren */
+.bewerbung-container h1,
+.bewerbung-container .team-heading {
+    text-align: center;
+}
+
+/* Bewerbungsformular: Restlicher Text linksbündig */
+.bewerbung-container .form-group,
+.bewerbung-container .content-text:not(h1):not(.team-heading) {
+    text-align: left;
+}
+
+/* Alle anderen Seiten: Überschriften und Text linksbündig */
+.content-container:not(.intro-content):not(.bewerbung-container) h1,
+.content-container:not(.intro-content):not(.bewerbung-container) h2,
+.content-container:not(.intro-content):not(.bewerbung-container) .content-text {
+    text-align: left;
+}
+
+/* Sicherstellen, dass die section-title Gradient Überschriften weiterhin richtig zentriert sind */
+h2.centered-title,
+.team-heading {
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+/* Spezielle Klasse für "Werde Teil unseres Teams" */
+.team-heading {
+    font-size: 1.8rem;
+    background: var(--section-title-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 20px 0 40px 0;
+}
+
+
+
+
+
+/* Allgemeine Stile für alle Inhalte */
+.content-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Allgemeine Stile für Links in den Inhalten */
+
+.content-text a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.content-text a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Neuer Bereich: Impressum-spezifische Links */
+.impressum-content a {
+    color: var(--impressum-link-color);
+    text-decoration: none;
+}
+
+.impressum-content a:hover {
+    color: var(--impressum-link-hover-color);
+    text-decoration: underline;
+}
+
+/* Neuer Bereich: Impressum-spezifische Links */
+.datenschutz-content a {
+    color: var(--datenschutz-link-color);
+    text-decoration: none;
+}
+
+.datenschutz-content a:hover {
+    color: var(--datenschutz-link-hover-color);
+    text-decoration: underline;
+}
+.kontakt-content a {
+    color: var(--contact-link-color);
+    text-decoration: none;
+}
+
+.kontakt-content a:hover {
+    color: var(--contact-link-hover-color);
+    text-decoration: underline;
+}
+
+/* Bewerbungsformular Styles */
+.bewerbung-container {
+    max-width: 800px;
+    margin: 60px auto; /* Zurück zu auto für horizontale Zentrierung */
+	padding: 24px;
+    background-color: var(--container-bg-color);
+    border-radius: 12px;
+    border: 1px solid rgba(85, 243, 189, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px var(--container-shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+
+}
+.bewerbung-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 203, 183, 0.1);
+}
+
+.bewerbung-form {
+    max-width: 600px;
+    margin: 0 auto;
+
+}
+
+.bewerbung-container h1 {
+    text-align: center;
+    color: var(--text-color-primary);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, 
+        var(--button-gradient-start),
+        var(--button-gradient-end)
+
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bewerbung-container h2 {
+    text-align: center; /* Zentriert den Text */
+    color: white;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    background: var(--section-title-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 100%; /* Volle Breite für die Zentrierung */
+}
+
+.form-group {
+    margin-bottom: 25px;
+    width: 100%;
+    box-sizing: border-box; /* Wichtig für korrekte Breitenberechnung */
+
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="password"],  /* Dies fügen wir noch zur Liste hinzu */
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(85, 243, 189, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.radio-option input[type="radio"] {
+    margin: 0;
+}
+
+.radio-option label {
+    margin: 0;
+    font-weight: normal;
+}
+
+.bewerbung-form button {
+    background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: black;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 40px auto 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bewerbung-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 203, 183, 0.3);
+    background: linear-gradient(90deg, var(--button-gradient-hover-start), var(--button-gradient-hover-end));
+}
+
+@media (max-width: 768px) {
+    .bewerbung-container {
+        margin: 100px 15px 40px 15px;
+        padding: 20px;
+
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+
+
+}
+/* Navigationsleiste */
+.navbar {
+    height: 70px;
+    position: fixed;
+    top: 10px; /* Abstand von oben */
+    left: 20px; /* Abstand von links */
+    right: 20px; /* Abstand von rechts - DAS IST DER WICHTIGE NEUE TEIL */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1002;
+    
+    /* Glasmorphismus-Effekt */
+    background: rgba(11, 11, 19, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(85, 243, 189, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    
+    /* Abgerundete Ecken */
+    border-radius: 15px;
+    
+    /* Sanfterer Farbverlauf */
+    background: linear-gradient(
+        to bottom,
+        rgba(11, 11, 19, 0.4),
+        rgba(11, 11, 19, 0.2)
+    );
+}
+
+.navbar-left {
+    flex: 0 0 auto;
+}
+
+.navbar-left img {
+    height: 50px; /* Passen Sie die Höhe des Logos an */
+}
+
+.navbar-center {
+    flex: 1 1 auto;
+}
+
+.navbar-center ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-center ul li {
+    display: inline-block;
+}
+
+/* Weitere Anpassungen für bessere visuelle Integration */
+.navbar-center ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    transition: color 0.3s ease; /* Sanfter Übergang für Hover-Effekt */
+}
+
+.navbar-center ul li a:hover {
+    color: var(--button-gradient-end); /* Verwendet Ihre Akzentfarbe */
+}
+
+.btn-nav {
+    background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: black !important;
+    border-radius: 20px;
+    white-space: nowrap;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    position: relative;  /* Position hinzugefügt */
+    top: -5px;  /* Button nach oben verschieben - Wert anpassbar */
+    font-weight: 500;  /* Etwas fetter für bessere Lesbarkeit auf hellem Hintergrund */
+
+}
+
+.btn-nav:hover {
+    background: linear-gradient(90deg, var(--button-gradient-hover-start), var(--button-gradient-hover-end));
+    color: black;  /* Schwarze Schrift bleibt auch beim Hover */
+}
+
+.navbar-right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.navbar-right a {
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Hamburger-Menü-Icon */
+.hamburger {
+    display: none; /* Standardmäßig ausgeblendet */
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1003;
+}
+
+.hamburger .line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.hamburger .line1 {
+    top: 0;
+}
+
+.hamburger .line2 {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger .line3 {
+    bottom: 0;
+}
+
+.hamburger.open .line1 {
+    transform: rotate(45deg);
+    top: 50%;
+}
+
+.hamburger.open .line2 {
+    opacity: 0;
+}
+
+.hamburger.open .line3 {
+    transform: rotate(-45deg);
+    top: 50%;
+}
+
+/* Desktop Sidebar - sichtbar nur auf großen Bildschirmen */
+.desktop-sidebar {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: 200px;
+    height: calc(100% - var(--navbar-height));
+    background-color: rgba(0, 0, 0, 0);
+    padding-top: 20px;
+    z-index: 1001;
+    overflow-y: auto;
+    display: block; /* Standardmäßig anzeigen */
+    transition: transform 0.3s ease;
+    transform: translateX(0); /* Standardmäßig sichtbar */
+}
+
+.desktop-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.desktop-sidebar ul li {
+    margin: 10px 0;
+}
+
+.desktop-sidebar ul li a {
+    color: var(--desktop-sidebar-link-color, white);
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    transition: color 0.3s ease; /* Nur Transition für die Farbe, da kein Hintergrund sich ändert */
+}
+
+.desktop-sidebar ul li a:hover {
+    color: #00ffcc; /* Gleiche Farbe wie in der Navbar */
+}
+/* Sidebar-Stile */
+.sidebar {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: 200px;
+    height: calc(100% - var(--navbar-height));
+    background-color: rgba(0, 0, 0, 0);
+    padding-top: 20px;
+    z-index: 1001; /* Unterhalb der Navbar */
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    transform: translateX(0); /* Standardmäßig sichtbar */
+}
+
+.sidebar.open {
+    transform: translateX(-200px); /* Versteckt die Sidebar */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: var(--sidebar-link-color, white); /* Standardfarbe, falls --sidebar-link-color nicht definiert ist */
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: var(--sidebar-hover-background-color, rgba(255, 255, 255, 0.1));
+}
+
+
+/* Animation-Container anpassen */
+.animation-container {
+    margin-left: 200px; /* Platz für die Sidebar */
+    margin-top: var(--navbar-height);
+    padding: 20px;
+    position: relative;
+    z-index: 1; /* Sicherstellen, dass der Z-Index niedriger ist als der Hero-Bereich */
+    transition: margin-left 0.3s ease;
+}
+
+/* Mobiles Menü */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Versteckt das Menü außerhalb des Viewports */
+    width: 250px;
+    height: 100%;
+    background-color: var(--mobile-menu-bg-color);
+    overflow-y: auto;
+    transition: left 0.3s;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mobile-menu.open {
+    left: 0; /* Schiebt das Menü in den sichtbaren Bereich */
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.mobile-menu ul li {
+    margin: 20px 0;
+}
+
+.mobile-menu ul li a {
+    color: var(--mobile-menu-link-color);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.mobile-menu ul li a:hover {
+    color: var(--mobile-menu-link-hover-color);
+}
+
+.mobile-social-icons {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.mobile-social-icons a {
+    display: inline-block;
+}
+
+.mobile-social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .navbar-center {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .navbar {
+        left: 10px;
+        right: 10px;
+        padding: 0 15px;
+    }
+
+    .navbar-left, .navbar-right {
+        flex: 0 0 auto;
+    }
+
+    .navbar-left {
+        margin-right: auto;
+    }
+
+    .navbar-right {
+        margin-left: auto;
+    }
+
+    .navbar-right a {
+        display: none;
+    }
+
+    .desktop-sidebar {
+        display: none; /* Sidebar ausblenden in mobiler Ansicht */
+    }
+
+    .sidebar {
+        transform: translateX(-200px);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .animation-container {
+        margin-left: 0;
+    }
+
+    .mobile-social-icons {
+        display: flex;
+    }
+    section {
+        padding: 40px 15px;
+    }
+    
+    .content-container {
+        padding: 20px;
+        margin: 15px 0;
+    }
+
+}
+
+
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+
+    .navbar-right a {
+        display: flex;
+    }
+
+    .mobile-social-icons {
+        display: none;
+    }
+}
+
+/* Hero-Sektion */
+.hero {
+    /* background-image: url('../images/hero-image.png'); */ /* Hero-Bild entfernt */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    margin-top: var(--navbar-height);
+    padding: 40px 20px;
+    
+    /* Flexbox (nur einmal deklariert) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    /* Text */
+    text-align: center;
+    color: var(--hero-text-color);
+    
+    /* Hintergrund */
+    background: transparent;
+    
+    /* Positionierung */
+    z-index: 2;
+    
+
+}
+/* Verlaufseffekt für Hero */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at 50% 0%,
+        rgba(85, 243, 189, 0.08) 0%,    /* Helleres Türkis, sehr subtil */
+        rgba(85, 243, 189, 0.06) 25%,   /* Erster weicher Übergang */
+        rgba(0, 203, 183, 0.04) 50%,    /* Zweiter weicher Übergang */
+        rgba(0, 203, 183, 0.02) 75%,    /* Dritter weicher Übergang */
+        transparent 100%
+    );
+    z-index: -1;
+}
+}
+
+#3d-logo-container {
+    display: flex;
+    align-items: center;
+   /* background-color: black; */ /* Diese Zeile entfernen oder auskommentieren */
+    justify-content: center;
+    width: 150px; /* Breite des Würfels */
+    height: 150px;
+}
+
+/* Neue Canvas Styles */
+#3d-logo-container canvas {
+    overscroll-behavior: none;
+    touch-action: none;
+    user-select: none; /* Verhindert Text-Selektion */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.cube-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.effect-button {
+    padding: 8px 16px;
+    background: linear-gradient(90deg, #00CBB7, #55F3BD);
+    border: none;
+    border-radius: 4px;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.effect-button:hover {
+    transform: scale(1.05);
+}
+
+/* Für bessere Lesbarkeit des Hero-Inhalts */
+.hero-text {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, 
+        var(--button-gradient-start),
+        var(--button-gradient-end)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-text .btn-instagram {
+    background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: var(--text-color-primary);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    transition: background 0.3s ease; /* Sanfter Übergang beim Hover */
+}
+
+.hero-text .btn-instagram:hover {
+    background: linear-gradient(90deg, var(--button-gradient-hover-start), var(--button-gradient-hover-end));
+}
+
+/* Weitere Stile (Footer, Buttons, etc.) */
+
+/* instagram Button */
+.btn-instagram {
+	background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));    
+	color: var(--text-color-primary);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background 0.3s ease; /* Sanfter Übergang beim Hover */
+}
+
+.btn-instagram:hover {
+    background: linear-gradient(90deg, var(--button-gradient-hover-start), var(--button-gradient-hover-end));
+}
+/* Sektionen */
+section {
+    position: relative;
+    padding: 60px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+/* Allgemeine h2 Styling */
+h2 {
+    font-size: 36px;
+    background: var(--section-title-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--section-title-gradient);
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.section-box {
+    background-color: transparent;
+    color: var(--section-box-text-color);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+    max-width: 1000px;
+    margin: 20px auto;
+    border: 1px solid rgba(85, 243, 189, 0.1);
+}
+/* NEU: Größere Überschriften in den Boxen */
+.section-box h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+/* NEU: Größerer Text in den Boxen */
+.section-box p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: linear-gradient(90deg, var(--button-gradient-start), var(--button-gradient-end));
+    color: var(--text-color-primary);
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, var(--button-gradient-hover-start), var(--button-gradient-hover-end));
+}
+
+
+/* Haupt-Footer-Styling */
+.footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Links im Haupt-Footer */
+.footer a {
+    color: var(--link-color);
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.footer a:hover {
+color: var(--link-color-hover);
+    text-decoration: underline;
+}
+
+/* Footer-Inhalt für zusätzlichen, strukturierten Bereich */
+.footer-content {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid var(--footer-border-color);
+    text-align: center;
+    font-size: 14px;
+    color: var(--footer-content-text-color);
+}
+
+/* Links im strukturierten Bereich des Footers */
+.footer-content a {
+    color: var(--footer-content-link-color);
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+/* Abstände für Text im strukturierten Bereich */
+.footer-content p {
+    margin: 5px 0;
+}
+
+.benefits-list, .services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefits-list li, .services-list li {
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.benefits-list li::before, .services-list li::before {
+    content: "✓ ";
+    color: var(--list-icon-color);
+    font-weight: bold;
+}
+
+
+
+
+/* Basis-Animation für Scroll-Effekte */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Klasse die hinzugefügt wird, wenn Element sichtbar ist */
+.fade-in-up.is-visible,
+.fade-in-up.has-appeared {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Verzögerungen */
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
